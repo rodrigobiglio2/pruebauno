@@ -2,5 +2,6 @@ const saludo = () =>{
     alert("hola");
 }
 
-
-saludo();
+setTimeout(() => {
+    saludo();
+}, 3000);
