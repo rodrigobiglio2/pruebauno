@@ -3,3 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    background-color: rgb(137, 194, 23);
+}
+
+h1{
+    text-align: center;
+}
