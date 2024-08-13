@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+html{
+    font-size: 10px;
+}
 body{
     background-color: rgb(137, 194, 23);
 }
@@ -11,4 +14,7 @@ body{
 h1{
     text-align: center;
     color: white;
+    font-size: 2rem;
+    border-bottom: 1px sold black;
 }
+
