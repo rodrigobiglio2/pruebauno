@@ -8,13 +8,59 @@ html{
     font-size: 10px;
 }
 body{
-    background-color: rgb(137, 194, 23);
+   background-color: blueviolet;
 }
 
 h1{
+    display: none;
+    opacity: 0;
     text-align: center;
     color: white;
     font-size: 5rem;
-    border-bottom: 3px solid white;
+}
+
+.form-container{
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario{
+    height: 50px;
+    width: 220px;
+    display: flex;
+    label{
+        border-radius: 10px;
+        height: 100%;
+        width: 80%;
+        input{
+            outline: none;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px 0 0 10px;
+            padding-left: 10px;
+            &:focus{
+            }
+
+            &:active {
+
+            }
+        }
+    }
+    input{
+        border: none;
+        width: 20%;
+        height: 100%;
+        border-radius: 0 10px 10px  0;
+    }
+}
+
+.visible{
+    display: block;
+    opacity: 1;
+    &::first-letter{
+        color: red;
+    }
 }
 
