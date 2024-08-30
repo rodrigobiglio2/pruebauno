@@ -6,7 +6,11 @@
 
 body{
     min-height: 100vh;
+    width: 100%;
     background-color: crimson;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 img{
@@ -72,9 +76,7 @@ img{
     width: 180px;
     border-radius: 30px;
     border: 1px solid black;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+
     color: white;
     font-weight: bold;
     background-color: rgba(31, 171, 171, 0.652);

@@ -54,15 +54,15 @@ const renderizar = (contador,contadorCorrectas) =>{
             }
             boton4.classList.add(`posicion${item}`);
 
-            boton1.addEventListener("click", () =>{
-                boton1.classList.add("btn-error");
-                boton2.classList.add("btn-correcto");
-                setTimeout(() => {
-                    counter++;
-                    renderizar(counter, counterR);
-                }, 300);
+        boton1.addEventListener("click", () =>{
+            boton1.classList.add("btn-error");
+            boton2.classList.add("btn-correcto");
+            setTimeout(() => {
+                counter++;
+                renderizar(counter, counterR);
+            }, 300);
 
-            })    
+        });    
         boton2.addEventListener("click", () =>{
                 boton2.classList.add("btn-correcto");
                 setTimeout(() => {
@@ -70,8 +70,7 @@ const renderizar = (contador,contadorCorrectas) =>{
                     counterR++;
                     renderizar(counter, counterR);
                 }, 300);
-        })
-
+        });
         boton3.addEventListener("click", () =>{
             boton3.classList.add("btn-error");
             boton2.classList.add("btn-correcto");
@@ -80,16 +79,16 @@ const renderizar = (contador,contadorCorrectas) =>{
                 renderizar(counter, counterR);
             }, 300);
 
-        })  
+        });  
         boton4.addEventListener("click", () =>{
-            boton4.classList.add("btn-error");
-            boton2.classList.add("btn-correcto");
-            setTimeout(() => {
-                counter++;
-                renderizar(counter, counterR);
-            }, 300);
+                boton4.classList.add("btn-error");
+                boton2.classList.add("btn-correcto");
+                setTimeout(() => {
+                    counter++;
+                    renderizar(counter, counterR);
+                }, 300);
 
-    })  
+        });  
 
 
             
