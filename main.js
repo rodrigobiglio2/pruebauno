@@ -109,7 +109,7 @@ const renderizar = (contador,contadorCorrectas) =>{
         //   }).showToast();
 
 
-        if(counter>2){
+        if(counter>29){
             Swal.fire({
                 title: "Juego terminado",
                 text: `conseguiste ${counterR} repuestas correctas`,
