@@ -5,7 +5,7 @@ const contenedor = document.getElementById("contenedor");
 
 const renderizar = (contador,contadorCorrectas) =>{
     play.className="hide";
-    let counter = contador
+    let counter = contador;
     let counterR = contadorCorrectas;
     contenedor.innerHTML="";
     fetch("https://restcountries.com/v3.1/all")
@@ -22,6 +22,8 @@ const renderizar = (contador,contadorCorrectas) =>{
                 <button id="opcion3" class="boton">${datos[Math.round(Math.random()*250)].name.common}</button>
                 <button id="opcion4" class="boton">${datos[Math.round(Math.random()*250)].name.common}</button>
             `;
+            
+           
             div.append(imagen);
             contenedor.append(div);
 
@@ -29,6 +31,7 @@ const renderizar = (contador,contadorCorrectas) =>{
             let boton2 = document.getElementById("opcion2");
             let boton3 = document.getElementById("opcion3");
             let boton4 = document.getElementById("opcion4");
+ 
 
             let item = Math.round(Math.random()*3);
             boton1.classList.add(`posicion${item}`);
@@ -52,73 +55,43 @@ const renderizar = (contador,contadorCorrectas) =>{
             boton4.classList.add(`posicion${item}`);
 
             boton1.addEventListener("click", () =>{
-                if(boton1.textContent === pais.name.common){
-                    boton1.classList.add("btn-correcto");
-                    setTimeout(() => {
-                        counter++;
-                        counterR++;
-                        renderizar(counter, counterR);
-                    }, 100);
-                }else{
-                    boton1.classList.add("btn-error");
-                    setTimeout(() => {
-                        counter++;
-                        renderizar(counter, counterR);
-                    }, 100);
-                }
+                boton1.classList.add("btn-error");
+                boton2.classList.add("btn-correcto");
+                setTimeout(() => {
+                    counter++;
+                    renderizar(counter, counterR);
+                }, 300);
+
             })    
-            boton2.addEventListener("click", () =>{
-                if(boton2.textContent === pais.name.common){
-                    boton2.classList.add("btn-correcto");
-                    setTimeout(() => {
-                        counter++;
-                        counterR++;
-                        renderizar(counter, counterR);
-                    }, 100);
+        boton2.addEventListener("click", () =>{
+                boton2.classList.add("btn-correcto");
+                setTimeout(() => {
+                    counter++;
+                    counterR++;
+                    renderizar(counter, counterR);
+                }, 300);
+        })
 
-                }else{
-                    boton2.classList.add("btn-error")
-                    setTimeout(() => {
-                        counter++;
-                        renderizar(counter, counterR);
-                    }, 100);
-                }
-            })
-            boton3.addEventListener("click", () =>{
-                if(boton3.textContent === pais.name.common){
-                    boton3.classList.add("btn-correcto");
-                    setTimeout(() => {
-                        counter++;
-                        counterR++;
-                        renderizar(counter, counterR);
-                    }, 100);
+        boton3.addEventListener("click", () =>{
+            boton3.classList.add("btn-error");
+            boton2.classList.add("btn-correcto");
+            setTimeout(() => {
+                counter++;
+                renderizar(counter, counterR);
+            }, 300);
 
-                }else{
-                    boton3.classList.add("btn-error")
-                    setTimeout(() => {
-                        counter++;
-                        renderizar(counter, counterR);
-                    }, 100);
-                }
-            })
-            boton4.addEventListener("click", () =>{
-                if(boton4.textContent === pais.name.common){
-                    boton4.classList.add("btn-correcto");
-                    setTimeout(() => {
-                        counter++;
-                        counterR++;
-                        renderizar(counter, counterR);
-                    }, 100);
+        })  
+        boton4.addEventListener("click", () =>{
+            boton4.classList.add("btn-error");
+            boton2.classList.add("btn-correcto");
+            setTimeout(() => {
+                counter++;
+                renderizar(counter, counterR);
+            }, 300);
+
+    })  
 
 
-                }else{
-                    boton4.classList.add("btn-error");
-                    setTimeout(() => {
-                        counter++;
-                        renderizar(counter, counterR);
-                    }, 100);
-                }
-            })
             
             if(counter>29){
                 alert("Respuestas correctas: " + counterR+"/"+ counter)
