@@ -76,7 +76,6 @@ img{
     width: 180px;
     border-radius: 30px;
     border: 1px solid black;
-
     color: white;
     font-weight: bold;
     background-color: rgba(31, 171, 171, 0.652);
@@ -87,9 +86,8 @@ img{
 }
 
 
-span{
+.span{
     font-weight: bold;
     font-size: 25px;
     padding: 5px;
-    
 }

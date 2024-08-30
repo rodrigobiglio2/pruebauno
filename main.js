@@ -21,7 +21,7 @@ const renderizar = (contador,contadorCorrectas) =>{
                 <button id="opcion2" class="boton">${pais.name.common}</button>
                 <button id="opcion3" class="boton">${datos[Math.round(Math.random()*250)].name.common}</button>
                 <button id="opcion4" class="boton">${datos[Math.round(Math.random()*250)].name.common}</button>
-                <span> ${counterR}/${counter}</span>
+                <span class="span"> ${counterR}/${counter}</span>
             `;
             
            
@@ -109,12 +109,18 @@ const renderizar = (contador,contadorCorrectas) =>{
         //   }).showToast();
 
 
-        if(counter>29){
-            
-            alert("Respuestas correctas: " + counterR+"/"+ counter)
-            counter=0;
-            counterR=0;
-            location.reload();
+        if(counter>2){
+            Swal.fire({
+                title: "Juego terminado",
+                text: `conseguiste ${counterR} repuestas correctas`,
+                icon: "success"
+              });
+            setTimeout(() => {
+                counter=0;
+                counterR=0;
+                location.reload();                
+            }, 6000);
+
         }
     }) 
 }
