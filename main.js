@@ -21,6 +21,7 @@ const renderizar = (contador,contadorCorrectas) =>{
                 <button id="opcion2" class="boton">${pais.name.common}</button>
                 <button id="opcion3" class="boton">${datos[Math.round(Math.random()*250)].name.common}</button>
                 <button id="opcion4" class="boton">${datos[Math.round(Math.random()*250)].name.common}</button>
+                <span> ${counterR}/${counter}</span>
             `;
             
            
@@ -90,15 +91,32 @@ const renderizar = (contador,contadorCorrectas) =>{
 
         });  
 
-
+        // Toastify({
+        //     text: "This is a toast",
+        //     className: "info",
+        //     style: {
+        //       background: "linear-gradient(to right, #00b09b, #96c93d)",
+        //     }
+        //   }).showToast();
             
-            if(counter>29){
-                alert("Respuestas correctas: " + counterR+"/"+ counter)
-                counter=0;
-                counterR=0;
-                location.reload();
-            }
-        }) 
+
+        // Toastify({
+        //     text: "This is a toast with offset",
+        //     offset: {
+        //       x: 150, // horizontal axis - can be a number or a string indicating unity. eg: '2em'
+        //       y: 210 // vertical axis - can be a number or a string indicating unity. eg: '2em'
+        //     },
+        //   }).showToast();
+
+
+        if(counter>29){
+            
+            alert("Respuestas correctas: " + counterR+"/"+ counter)
+            counter=0;
+            counterR=0;
+            location.reload();
+        }
+    }) 
 }
 
 play.addEventListener("click", ()=>{ 
