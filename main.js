@@ -1,7 +1,7 @@
 const play = document.getElementById("play");
 const contenedor = document.getElementById("contenedor");
 
-const renderizar = (contador, contadorCorrectas) => {
+const renderizar = (contador, contadorCorrectas, contadorbanderas) => {
     play.className = "hide";
     let counter = contador;
     let counterR = contadorCorrectas;
@@ -10,7 +10,6 @@ const renderizar = (contador, contadorCorrectas) => {
         .then(response => response.json())
         .then(datos => {
             // let filtradosAsia = datos.filter((item) => item.continents[0] === "Asia");
-            let filtradosEuropa = datos.filter((item) => item.continents[0] === "Europe");
             // let filtradosOceania = datos.filter((item) => item.continents[0] === "Europe");
             // let filtradosNA = datos.filter((item) => item.continents[0] === "North America");
             // let filtradosSA = datos.filter((item) => item.continents[0] === "South America");
@@ -20,11 +19,39 @@ const renderizar = (contador, contadorCorrectas) => {
             //     const ccn3 = item.cca3;
             //     console.log(ccn3)
             // });
-            console.log(filtradosEuropa)
+
+            // EL FIN DE TODO ES TENER UNA ARRAY CON LOS QUE SALIERON
+            //TENGO QUE COMPARAR ESE ARRAY CON LOS QUE VAYAN SALIENDO
+            //UN BUCLE QUE TIRE EL PAIS ALEATORIO Y COMPARE CON EL CCA3
+
+            let filtradosEuropa = datos.filter((item) => item.continents[0] === "Europe");
             let div = document.createElement("div");
             div.classList.add("preguntas")
             let imagen = document.createElement("img");
             let pais = filtradosEuropa[Math.round(Math.random() * 54)];
+
+            // pais.cca3 CODIGO DEL PAIS RANDOM
+        
+            // A COMPRAR CON LA VARIABLE COPIADOS
+
+
+
+            let copiados = contadorbanderas;
+            let verificar = copiados.some((item) => item.cca3 === pais.cca3);
+            if(verificar){
+                    while(verificar!=false){
+                        pais = filtradosEuropa[Math.round(Math.random() * 54)];
+                        verificar = copiados.some((item) => item.cca3 === pais.cca3);
+                        if(!verificar){
+                            copiados.push(pais);
+                        }
+                    }
+            }else{
+                copiados.push(pais);
+            }
+
+
+
             imagen.setAttribute("src", pais.flags.png);
             div.innerHTML = `
                 <button id="opcion1" class="boton">${filtradosEuropa[Math.round(Math.random() * 54)].name.common}</button>
@@ -70,7 +97,7 @@ const renderizar = (contador, contadorCorrectas) => {
                 boton2.classList.add("btn-correcto");
                 setTimeout(() => {
                     counter++;
-                    renderizar(counter, counterR);
+                    renderizar(counter, counterR, copiados);
                 }, 300);
 
             });
@@ -79,7 +106,7 @@ const renderizar = (contador, contadorCorrectas) => {
                 setTimeout(() => {
                     counter++;
                     counterR++;
-                    renderizar(counter, counterR);
+                    renderizar(counter, counterR, copiados);
                 }, 300);
             });
             boton3.addEventListener("click", () => {
@@ -87,7 +114,7 @@ const renderizar = (contador, contadorCorrectas) => {
                 boton2.classList.add("btn-correcto");
                 setTimeout(() => {
                     counter++;
-                    renderizar(counter, counterR);
+                    renderizar(counter, counterR, copiados);
                 }, 300);
 
             });
@@ -96,7 +123,7 @@ const renderizar = (contador, contadorCorrectas) => {
                 boton2.classList.add("btn-correcto");
                 setTimeout(() => {
                     counter++;
-                    renderizar(counter, counterR);
+                    renderizar(counter, counterR, copiados);
                 }, 300);
 
             });
@@ -118,7 +145,7 @@ const renderizar = (contador, contadorCorrectas) => {
 }
 
 play.addEventListener("click", () => {
-    renderizar(0, 0);
+    renderizar(0, 0, []);
 }
 )
 
