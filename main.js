@@ -7,7 +7,9 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
     fetch("https://restcountries.com/v3.1/all")
         .then(response => response.json())
         .then(datos => {
+    
             let filtrados = datos.filter((item) => item.continents[0] === continente);
+            console.log(filtrados);
             let div = document.createElement("div");
             div.classList.add("preguntas")
             let imagen = document.createElement("img");
@@ -27,10 +29,10 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
 
             imagen.setAttribute("src", pais.flags.png);
             div.innerHTML = `
-                <button id="opcion1" class="boton">${filtrados[Math.round(Math.random() * cantidadPreguntas)].name.common}</button>
+                <button id="opcion1" class="boton">${datos[Math.round(Math.random() * 250)].name.common}</button>
                 <button id="opcion2" class="boton">${pais.name.common}</button>
-                <button id="opcion3" class="boton">${filtrados[Math.round(Math.random() * cantidadPreguntas)].name.common}</button>
-                <button id="opcion4" class="boton">${filtrados[Math.round(Math.random() * cantidadPreguntas)].name.common}</button>
+                <button id="opcion3" class="boton">${datos[Math.round(Math.random() * 250)].name.common}</button>
+                <button id="opcion4" class="boton">${datos[Math.round(Math.random() * 250)].name.common}</button>
                 <span class="span"> ${contadorCorrectas}/${contadoPreguntas}</span>
             `;
 
@@ -199,10 +201,10 @@ europa.addEventListener("click", ()=>{
 
 asia.addEventListener("click", ()=>{
     botones.classList.add("hiden");
-    renderizar(0, 0, [], "Asia", 50);
+    renderizar(0, 0, [], "Asia", 49);
 })
 
 africa.addEventListener("click", ()=>{
     botones.classList.add("hiden");
-    renderizar(0, 0, [], "Africa", 58);
+    renderizar(0, 0, [], "Africa", 57);
 })
