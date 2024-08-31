@@ -1,66 +1,45 @@
 const play = document.getElementById("play");
 const contenedor = document.getElementById("contenedor");
 
-const renderizar = (contador, contadorCorrectas, contadorbanderas) => {
-    play.className = "hide";
-    let counter = contador;
-    let counterR = contadorCorrectas;
+const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas) => {
+    // play.className = "hide";   
     contenedor.innerHTML = "";
     fetch("https://restcountries.com/v3.1/all")
         .then(response => response.json())
         .then(datos => {
-            // let filtradosAsia = datos.filter((item) => item.continents[0] === "Asia");
-            // let filtradosOceania = datos.filter((item) => item.continents[0] === "Europe");
-            // let filtradosNA = datos.filter((item) => item.continents[0] === "North America");
-            // let filtradosSA = datos.filter((item) => item.continents[0] === "South America");
-            // let filtradosAntartica = datos.filter((item) => item.continents[0] === "Antarctica");
-            // CREAR UN ARRAY PARA GUARDAR LOS PAISES YA PREGUNTADOS, UNA VEZ TENER ESE ARRAY COMPARARLO CON EL PAIS AL  AZAR EN UN BUCLE Y SI ES REPETIDO VOLVERA TIRAR OTRO PAIS AL AZAR 
-            // datos.forEach(item => {
-            //     const ccn3 = item.cca3;
-            //     console.log(ccn3)
-            // });
-
-            // EL FIN DE TODO ES TENER UNA ARRAY CON LOS QUE SALIERON
-            //TENGO QUE COMPARAR ESE ARRAY CON LOS QUE VAYAN SALIENDO
-            //UN BUCLE QUE TIRE EL PAIS ALEATORIO Y COMPARE CON EL CCA3
-
-            let filtradosEuropa = datos.filter((item) => item.continents[0] === "Europe");
+            let filtrados = datos.filter((item) => item.continents[0] === continente);
+            console.log(filtrados);
+            // console.log(yaPreguntados)
+            // if(!filtrados){
+            //     renderizar(contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas)
+            // }
             let div = document.createElement("div");
             div.classList.add("preguntas")
             let imagen = document.createElement("img");
-            let pais = filtradosEuropa[Math.round(Math.random() * 54)];
-
-            // pais.cca3 CODIGO DEL PAIS RANDOM
-        
-            // A COMPRAR CON LA VARIABLE COPIADOS
-
-
-
-            let copiados = contadorbanderas;
-            let verificar = copiados.some((item) => item.cca3 === pais.cca3);
+            let pais = filtrados[Math.round(Math.random() * cantidadPreguntas)];
+           
+            let verificar = yaPreguntados.some((item) => item.cca3 === pais.cca3);
             if(verificar){
                     while(verificar!=false){
-                        pais = filtradosEuropa[Math.round(Math.random() * 54)];
-                        verificar = copiados.some((item) => item.cca3 === pais.cca3);
+                        pais = filtrados[Math.round(Math.random() * cantidadPreguntas)];
+                        verificar = yaPreguntados.some((item) => item.cca3 === pais.cca3);
                         if(!verificar){
-                            copiados.push(pais);
+                            yaPreguntados.push(pais);
                         }
                     }
             }else{
-                copiados.push(pais);
+                yaPreguntados.push(pais);
             }
-
 
 
             imagen.setAttribute("src", pais.flags.png);
             div.innerHTML = `
-                <button id="opcion1" class="boton">${filtradosEuropa[Math.round(Math.random() * 54)].name.common}</button>
+                <button id="opcion1" class="boton">${filtrados[Math.round(Math.random() * cantidadPreguntas)].name.common}</button>
                 <button id="opcion2" class="boton">${pais.name.common}</button>
-                <button id="opcion3" class="boton">${filtradosEuropa[Math.round(Math.random() * 54)].name.common}</button>
-                <button id="opcion4" class="boton">${filtradosEuropa[Math.round(Math.random() * 54)].name.common}</button>
-                <span class="span"> ${counterR}/${counter}</span>
+                <button id="opcion3" class="boton">${filtrados[Math.round(Math.random() * cantidadPreguntas)].name.common}</button>
+                <button id="opcion4" class="boton">${filtrados[Math.round(Math.random() * cantidadPreguntas)].name.common}</button>
+                <span class="span"> ${contadorCorrectas}/${contadoPreguntas}</span>
             `;
-
 
             div.append(imagen);
             contenedor.append(div);
@@ -96,25 +75,25 @@ const renderizar = (contador, contadorCorrectas, contadorbanderas) => {
                 boton1.classList.add("btn-error");
                 boton2.classList.add("btn-correcto");
                 setTimeout(() => {
-                    counter++;
-                    renderizar(counter, counterR, copiados);
+                    contadoPreguntas++;
+                    renderizar(contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas);
                 }, 300);
 
             });
             boton2.addEventListener("click", () => {
                 boton2.classList.add("btn-correcto");
                 setTimeout(() => {
-                    counter++;
-                    counterR++;
-                    renderizar(counter, counterR, copiados);
+                    contadoPreguntas++;
+                    contadorCorrectas++;
+                    renderizar(contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas);
                 }, 300);
             });
             boton3.addEventListener("click", () => {
                 boton3.classList.add("btn-error");
                 boton2.classList.add("btn-correcto");
                 setTimeout(() => {
-                    counter++;
-                    renderizar(counter, counterR, copiados);
+                    contadoPreguntas++;
+                    renderizar(contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas);
                 }, 300);
 
             });
@@ -122,31 +101,65 @@ const renderizar = (contador, contadorCorrectas, contadorbanderas) => {
                 boton4.classList.add("btn-error");
                 boton2.classList.add("btn-correcto");
                 setTimeout(() => {
-                    counter++;
-                    renderizar(counter, counterR, copiados);
+                    contadoPreguntas++;
+                    renderizar(contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas);
                 }, 300);
 
             });
 
-            if (counter > 29) {
+            if (contadoPreguntas >= cantidadPreguntas) {
                 Swal.fire({
                     title: "Juego terminado",
-                    text: `conseguiste ${counterR} repuestas correctas`,
+                    text: `conseguiste ${contadorCorrectas} repuestas correctas`,
                     icon: "success"
                 });
                 setTimeout(() => {
-                    counter = 0;
-                    counterR = 0;
+                    contadoPreguntas = 0;
+                    contadorCorrectas = 0;
                     location.reload();
-                }, 4000);
+                }, 3000);
 
             }
+
         })
 }
+// Oceania
+// North America
+// Europe
+// Asia
+// South America 
 
-play.addEventListener("click", () => {
-    renderizar(0, 0, []);
-}
-)
+const namerica = document.getElementById("namerica");
+const samerica = document.getElementById("samerica");
+const europa = document.getElementById("europa");
+const asia = document.getElementById("asia");
+const africa = document.getElementById("africa");
+const botones = document.getElementById("botones");
+
+namerica.addEventListener("click", ()=>{
+    botones.classList.add("hiden");
+    renderizar(0, 0, [], "North America", 40);
+})
+
+samerica.addEventListener("click", ()=>{
+    botones.classList.add("hiden");
+    renderizar(0, 0, [], "South America", 13);
+})
+
+europa.addEventListener("click", ()=>{
+    botones.classList.add("hiden");
+    renderizar(0, 0, [], "Europe", 54);
+})
+
+asia.addEventListener("click", ()=>{
+    botones.classList.add("hiden");
+    renderizar(0, 0, [], "Asia", 50);
+})
+
+africa.addEventListener("click", ()=>{
+    botones.classList.add("hiden");
+    renderizar(0, 0, [], "Africa", 58);
+})
+
 
 

@@ -13,14 +13,31 @@ body{
     align-items: center;
 }
 
+.boton-continente{
+    width: 120px;
+    height: 50px;
+    border-radius: 10px;
+    margin: 10px;
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.816);
+    color: white;
+    cursor: pointer;
+    &:hover{
+        border: 2px solid black;
+        background-color: white;
+        color: black;
+    }
+    &:active{
+        scale: .95;
+    }
+}
+
 img{
     height: 200px;
     width: 200px;
     vertical-align:bottom;
     object-fit: contain;
 }
-
-
 
 .preguntas{
     display: flex;
@@ -49,7 +66,6 @@ img{
         box-shadow: 3px 3px 10px black, -3px -3px 10px black ;
     }
 }
-
 .btn-error{
     background-image: linear-gradient(red, black);
 }
@@ -81,7 +97,7 @@ img{
     background-color: rgba(31, 171, 171, 0.652);
 }
 
-.hide{
+.hiden{
     display: none;
 }
 
