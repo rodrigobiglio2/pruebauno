@@ -1,13 +1,11 @@
 const play = document.getElementById("play");
 const contenedor = document.getElementById("contenedor");
 
-const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas) => {
-    // play.className = "hide";   
+const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas) => { 
     contenedor.innerHTML = "";
     fetch("https://restcountries.com/v3.1/all")
         .then(response => response.json())
         .then(datos => {
-    
             let filtrados = datos.filter((item) => item.continents[0] === continente);
             console.log(filtrados);
             let div = document.createElement("div");
