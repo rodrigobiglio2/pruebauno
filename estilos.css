@@ -7,7 +7,7 @@
 body{
     min-height: 100vh;
     width: 100%;
-    background-color: crimson;
+    background-image: linear-gradient(to bottom, black 40%, rgb(220, 20, 60));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,14 +18,13 @@ body{
     height: 50px;
     border-radius: 10px;
     margin: 10px;
-    border: 1px solid white;
-    background-color: rgba(0, 0, 0, 0.816);
-    color: white;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
     cursor: pointer;
     &:hover{
-        border: 2px solid black;
-        background-color: white;
-        color: black;
+       font-weight: bold;
+       box-shadow: 0 0 10px white;
     }
     &:active{
         scale: .95;

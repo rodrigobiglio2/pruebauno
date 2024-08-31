@@ -8,13 +8,10 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
         .then(response => response.json())
         .then(datos => {
             let filtrados = datos.filter((item) => item.continents[0] === continente);
-
-            console.log(filtrados);
             let div = document.createElement("div");
             div.classList.add("preguntas")
             let imagen = document.createElement("img");
             let pais = filtrados[Math.round(Math.random() * cantidadPreguntas)];
-           
             let verificar = yaPreguntados.some((item) => item.cca3 === pais.cca3);
             if(verificar){
                     while(verificar!=false){
@@ -67,9 +64,14 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
             }
             boton4.classList.add(`posicion${item}`);
 
+
             boton1.addEventListener("click", () => {
                 boton1.classList.add("btn-error");
                 boton2.classList.add("btn-correcto");
+                boton1.setAttribute("disabled", "true")
+                boton2.setAttribute("disabled", "true")
+                boton3.setAttribute("disabled", "true")
+                boton4.setAttribute("disabled", "true")
                 setTimeout(() => {
                     contadoPreguntas++;
                     if(contadoPreguntas < cantidadPreguntas + 1){
@@ -77,7 +79,7 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                     }else{
                         Swal.fire({
                         title: "Juego terminado",
-                        text: `conseguiste ${contadorCorrectas} repuestas correctas`,
+                        text: `conseguiste ${contadorCorrectas} / ${contadoPreguntas}`,
                         icon: "success"
                         });
                         contenedor.innerHTML = "";
@@ -92,6 +94,10 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
             });
             boton2.addEventListener("click", () => {
                 boton2.classList.add("btn-correcto");
+                boton1.setAttribute("disabled", "true")
+                boton2.setAttribute("disabled", "true")
+                boton3.setAttribute("disabled", "true")
+                boton4.setAttribute("disabled", "true")
                 setTimeout(() => {
                     contadoPreguntas++;
                     contadorCorrectas++;
@@ -100,7 +106,7 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                     }else{
                         Swal.fire({
                         title: "Juego terminado",
-                        text: `conseguiste ${contadorCorrectas} repuestas correctas`,
+                        text: `conseguiste ${contadorCorrectas} / ${contadoPreguntas}`,
                         icon: "success"
                         });
                         contenedor.innerHTML = "";
@@ -115,6 +121,10 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
             boton3.addEventListener("click", () => {
                 boton3.classList.add("btn-error");
                 boton2.classList.add("btn-correcto");
+                boton1.setAttribute("disabled", "true")
+                boton2.setAttribute("disabled", "true")
+                boton3.setAttribute("disabled", "true")
+                boton4.setAttribute("disabled", "true")
                 setTimeout(() => {
                     contadoPreguntas++;
                     if(contadoPreguntas < cantidadPreguntas + 1){
@@ -122,7 +132,7 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                     }else{
                         Swal.fire({
                         title: "Juego terminado",
-                        text: `conseguiste ${contadorCorrectas} repuestas correctas`,
+                        text: `conseguiste ${contadorCorrectas} / ${contadoPreguntas}`,
                         icon: "success"
                         });
                         contenedor.innerHTML = "";
@@ -138,6 +148,10 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
             boton4.addEventListener("click", () => {
                 boton4.classList.add("btn-error");
                 boton2.classList.add("btn-correcto");
+                boton1.setAttribute("disabled", "true")
+                boton2.setAttribute("disabled", "true")
+                boton3.setAttribute("disabled", "true")
+                boton4.setAttribute("disabled", "true")
                 setTimeout(() => {
                     contadoPreguntas++;
                     if(contadoPreguntas < cantidadPreguntas + 1){
@@ -145,7 +159,7 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                     }else{
                         Swal.fire({
                         title: "Juego terminado",
-                        text: `conseguiste ${contadorCorrectas} repuestas correctas`,
+                        text: `conseguiste ${contadorCorrectas} / ${contadoPreguntas}`,
                         icon: "success"
                         });
                         contenedor.innerHTML = "";
@@ -158,8 +172,6 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                 }, 300);
 
             });
-
-
         })
 }
 
