@@ -31,6 +31,10 @@ body{
         scale: .95;
     }
 }
+.botones-container{
+    display: flex;
+    flex-direction: column;
+}
 
 img{
     height: 200px;
