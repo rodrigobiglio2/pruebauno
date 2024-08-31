@@ -80,6 +80,7 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                         text: `conseguiste ${contadorCorrectas} repuestas correctas`,
                         icon: "success"
                         });
+                        contenedor.innerHTML = "";
                         setTimeout(() => {
                         contadoPreguntas = 0;
                         contadorCorrectas = 0;
@@ -102,6 +103,7 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                         text: `conseguiste ${contadorCorrectas} repuestas correctas`,
                         icon: "success"
                         });
+                        contenedor.innerHTML = "";
                         setTimeout(() => {
                         contadoPreguntas = 0;
                         contadorCorrectas = 0;
@@ -123,6 +125,7 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                         text: `conseguiste ${contadorCorrectas} repuestas correctas`,
                         icon: "success"
                         });
+                        contenedor.innerHTML = "";
                         setTimeout(() => {
                         contadoPreguntas = 0;
                         contadorCorrectas = 0;
@@ -145,6 +148,7 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                         text: `conseguiste ${contadorCorrectas} repuestas correctas`,
                         icon: "success"
                         });
+                        contenedor.innerHTML = "";
                         setTimeout(() => {
                         contadoPreguntas = 0;
                         contadorCorrectas = 0;
