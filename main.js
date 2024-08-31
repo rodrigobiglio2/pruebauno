@@ -8,11 +8,8 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
         .then(response => response.json())
         .then(datos => {
             let filtrados = datos.filter((item) => item.continents[0] === continente);
+
             console.log(filtrados);
-            // console.log(yaPreguntados)
-            // if(!filtrados){
-            //     renderizar(contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas)
-            // }
             let div = document.createElement("div");
             div.classList.add("preguntas")
             let imagen = document.createElement("img");
@@ -30,7 +27,6 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
             }else{
                 yaPreguntados.push(pais);
             }
-
 
             imagen.setAttribute("src", pais.flags.png);
             div.innerHTML = `
@@ -76,7 +72,20 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                 boton2.classList.add("btn-correcto");
                 setTimeout(() => {
                     contadoPreguntas++;
-                    renderizar(contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas);
+                    if(contadoPreguntas < cantidadPreguntas + 1){
+                        renderizar(contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas);
+                    }else{
+                        Swal.fire({
+                        title: "Juego terminado",
+                        text: `conseguiste ${contadorCorrectas} repuestas correctas`,
+                        icon: "success"
+                        });
+                        setTimeout(() => {
+                        contadoPreguntas = 0;
+                        contadorCorrectas = 0;
+                        location.reload();
+                        }, 3000);
+                    }
                 }, 300);
 
             });
@@ -85,7 +94,20 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                 setTimeout(() => {
                     contadoPreguntas++;
                     contadorCorrectas++;
-                    renderizar(contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas);
+                    if(contadoPreguntas < cantidadPreguntas + 1){
+                        renderizar(contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas);
+                    }else{
+                        Swal.fire({
+                        title: "Juego terminado",
+                        text: `conseguiste ${contadorCorrectas} repuestas correctas`,
+                        icon: "success"
+                        });
+                        setTimeout(() => {
+                        contadoPreguntas = 0;
+                        contadorCorrectas = 0;
+                        location.reload();
+                        }, 3000);
+                    }
                 }, 300);
             });
             boton3.addEventListener("click", () => {
@@ -93,7 +115,20 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                 boton2.classList.add("btn-correcto");
                 setTimeout(() => {
                     contadoPreguntas++;
-                    renderizar(contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas);
+                    if(contadoPreguntas < cantidadPreguntas + 1){
+                        renderizar(contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas);
+                    }else{
+                        Swal.fire({
+                        title: "Juego terminado",
+                        text: `conseguiste ${contadorCorrectas} repuestas correctas`,
+                        icon: "success"
+                        });
+                        setTimeout(() => {
+                        contadoPreguntas = 0;
+                        contadorCorrectas = 0;
+                        location.reload();
+                        }, 3000);
+                    }
                 }, 300);
 
             });
@@ -102,32 +137,27 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                 boton2.classList.add("btn-correcto");
                 setTimeout(() => {
                     contadoPreguntas++;
-                    renderizar(contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas);
+                    if(contadoPreguntas < cantidadPreguntas + 1){
+                        renderizar(contadoPreguntas, contadorCorrectas, yaPreguntados, continente, cantidadPreguntas);
+                    }else{
+                        Swal.fire({
+                        title: "Juego terminado",
+                        text: `conseguiste ${contadorCorrectas} repuestas correctas`,
+                        icon: "success"
+                        });
+                        setTimeout(() => {
+                        contadoPreguntas = 0;
+                        contadorCorrectas = 0;
+                        location.reload();
+                        }, 3000);
+                    }
                 }, 300);
 
             });
 
-            if (contadoPreguntas >= cantidadPreguntas) {
-                Swal.fire({
-                    title: "Juego terminado",
-                    text: `conseguiste ${contadorCorrectas} repuestas correctas`,
-                    icon: "success"
-                });
-                setTimeout(() => {
-                    contadoPreguntas = 0;
-                    contadorCorrectas = 0;
-                    location.reload();
-                }, 3000);
-
-            }
 
         })
 }
-// Oceania
-// North America
-// Europe
-// Asia
-// South America 
 
 const namerica = document.getElementById("namerica");
 const samerica = document.getElementById("samerica");
@@ -160,6 +190,3 @@ africa.addEventListener("click", ()=>{
     botones.classList.add("hiden");
     renderizar(0, 0, [], "Africa", 58);
 })
-
-
-
