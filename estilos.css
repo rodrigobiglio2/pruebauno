@@ -169,6 +169,7 @@ img{
     display: none;
 }
 .span{
+    text-shadow: 2px 2px 1px black;
     color: white;
     font-weight: bold;
     font-size: 25px;

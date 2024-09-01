@@ -89,7 +89,7 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                         location.reload();
                         }, 3000);
                     }
-                }, 300);
+                }, 500);
 
             });
             boton2.addEventListener("click", () => {
@@ -116,7 +116,7 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                         location.reload();
                         }, 3000);
                     }
-                }, 300);
+                }, 500);
             });
             boton3.addEventListener("click", () => {
                 boton3.classList.add("btn-error");
@@ -142,7 +142,7 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                         location.reload();
                         }, 3000);
                     }
-                }, 300);
+                }, 500);
 
             });
             boton4.addEventListener("click", () => {
@@ -169,7 +169,7 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
                         location.reload();
                         }, 3000);
                     }
-                }, 300);
+                }, 500);
 
             });
         })
