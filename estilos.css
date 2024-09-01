@@ -3,17 +3,12 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body{
     min-height: 100vh;
-    width: 100%;
-    /* background-color: black; */
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.797) 40%, rgba(220, 20, 60, 0.791));
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .boton-continente{
     width: 100%;
     height: 20%;
@@ -30,7 +25,7 @@ body{
         mask-image: radial-gradient(circle, black, transparent);
     }
 }
-.botones-container{
+.contenedor-opcion{
     height: 100vh;
     width: 100%;
     display: flex;
@@ -91,7 +86,6 @@ body{
         transform: translatex(50%);
     }
 }
-
 img{
     height: 200px;
     width: 200px;
@@ -99,14 +93,12 @@ img{
     object-fit: contain;
     vertical-align: bottom;
 }
-
 .preguntas{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px auto;
-    height: 500px;
-    width: 300px;
+    height: 100vh;
+    width: 100vw;
     background-color: transparent;
 }
 .imagen-fondo-namerica{
@@ -150,7 +142,6 @@ img{
 .btn-correcto{
     background-image: linear-gradient(green, black);
 }
-
 .posicion0{
     order: 1;
 }
@@ -163,7 +154,6 @@ img{
 .posicion3{
     order: 4;
 }
-
 .boton-inicio{
     margin-top: 20px;
     height: 35px;
@@ -174,12 +164,9 @@ img{
     font-weight: bold;
     background-color: rgba(31, 171, 171, 0.652);
 }
-
 .hiden{
     display: none;
 }
-
-
 .span{
     font-weight: bold;
     font-size: 25px;
