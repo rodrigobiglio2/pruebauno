@@ -185,24 +185,29 @@ const botones = document.getElementById("botones");
 namerica.addEventListener("click", ()=>{
     botones.classList.add("hiden");
     renderizar(0, 0, [], "North America", 40);
+    contenedor.classList.add("imagen-fondo-namerica")
 })
 
 samerica.addEventListener("click", ()=>{
     botones.classList.add("hiden");
     renderizar(0, 0, [], "South America", 13);
+    contenedor.classList.add("imagen-fondo-samerica")
 })
 
 europa.addEventListener("click", ()=>{
     botones.classList.add("hiden");
     renderizar(0, 0, [], "Europe", 54);
+    contenedor.classList.add("imagen-fondo-europa")
 })
 
 asia.addEventListener("click", ()=>{
     botones.classList.add("hiden");
     renderizar(0, 0, [], "Asia", 49);
+    contenedor.classList.add("imagen-fondo-asia")
 })
 
 africa.addEventListener("click", ()=>{
     botones.classList.add("hiden");
     renderizar(0, 0, [], "Africa", 57);
+    contenedor.classList.add("imagen-fondo-africa")
 })
