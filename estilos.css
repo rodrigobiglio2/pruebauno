@@ -168,6 +168,7 @@ img{
     display: none;
 }
 .span{
+    color: white;
     font-weight: bold;
     font-size: 25px;
     padding: 5px;
