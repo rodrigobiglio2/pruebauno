@@ -27,10 +27,10 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
 
             imagen.setAttribute("src", pais.flags.png);
             div.innerHTML = `
-                <button id="opcion1" class="boton">${datos[Math.round(Math.random() * 250)].name.common}</button>
+                <button id="opcion1" class="boton">${datos[Math.round(Math.random() * 249)].name.common}</button>
                 <button id="opcion2" class="boton">${pais.name.common}</button>
-                <button id="opcion3" class="boton">${datos[Math.round(Math.random() * 250)].name.common}</button>
-                <button id="opcion4" class="boton">${datos[Math.round(Math.random() * 250)].name.common}</button>
+                <button id="opcion3" class="boton">${datos[Math.round(Math.random() * 249)].name.common}</button>
+                <button id="opcion4" class="boton">${datos[Math.round(Math.random() * 249)].name.common}</button>
                 <span class="span"> ${contadorCorrectas}/${contadoPreguntas}</span>
             `;
 
