@@ -6,6 +6,7 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
     fetch("https://restcountries.com/v3.1/all")
         .then(response => response.json())
         .then(datos => {
+            console.log(datos);
             let filtrados = datos.filter((item) => item.continents[0] === continente);
             console.log(filtrados);
             let div = document.createElement("div");
@@ -181,6 +182,7 @@ const europa = document.getElementById("europa");
 const asia = document.getElementById("asia");
 const africa = document.getElementById("africa");
 const botones = document.getElementById("botones");
+// traerme el boton
 
 namerica.addEventListener("click", ()=>{
     botones.classList.add("hiden");

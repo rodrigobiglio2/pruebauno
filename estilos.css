@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -122,6 +122,7 @@ img{
     background: url("https://viajes.nationalgeographic.com.es/medio/2024/02/14/torre-eiffel_6e9796fd_278483323_240214093442_1280x853.jpg")center no-repeat ;
     background-size: cover;
 }
+/* imagen de fondo de oceania */
 .boton{
     width: 180px;
     height: 35px;
