@@ -1,3 +1,4 @@
+window.location.href="/pages/matenimiento.html"
 const play = document.getElementById("play");
 const contenedor = document.getElementById("contenedor");
 
