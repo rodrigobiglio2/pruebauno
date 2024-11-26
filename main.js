@@ -6,9 +6,7 @@ const renderizar = (contadoPreguntas, contadorCorrectas, yaPreguntados, continen
     fetch("https://restcountries.com/v3.1/all")
         .then(response => response.json())
         .then(datos => {
-            console.log(datos);
             let filtrados = datos.filter((item) => item.continents[0] === continente);
-            console.log(filtrados);
             let div = document.createElement("div");
             div.classList.add("preguntas")
             let imagen = document.createElement("img");
